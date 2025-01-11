@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SGPA Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>SGPA Calculator</h1>
+        <form id="sgpaForm">
+            <!-- Select Department -->
+            <label for="department">Select Department:</label>
+            <select id="department" onchange="loadSemesters()">
+                <option value="">--Select--</option>
+                <option value="CSE">Computer Science and Engineering</option>
+                <option value="EEE">Electrical and Electronics Engineering</option>
+                <option value="ME">Mechanical Engineering</option>
+            </select>
+
+            <!-- Select Semester -->
+            <label for="semester">Select Semester:</label>
+            <select id="semester" name="semester" onchange="loadCourses()" disabled>
+                <option value="">--Select Semester--</option>
+                <!-- Semesters will load dynamically based on selected department -->
+            </select>
+
+            <!-- Course Table -->
+            <table id="coursesTable">
+                <thead>
+                    <tr>
+                        <th>Course Code</th>
+                        <th>Course Title</th>
+                        <th>Credit</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Courses will load dynamically -->
+                </tbody>
+            </table>
+
+            <!-- Buttons -->
+            <div class="buttons">
+                <button type="reset">Reset</button>
+                <button type="button" onclick="calculateSGPA()">Submit</button>
+            </div>
+        </form>
+
+        <!-- Result Popup -->
+        <div id="resultPopup" style="display:none;">
+            <h2>SGPA Result</h2>
+            <p id="sgpaResult"></p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="calculation.js"></script>
+</body>
+</html>
