@@ -10,74 +10,79 @@
 </head>
 
 <body>
-    <div class="header">
-        <div class="logo1">
-            <a href="http://pundrauniversity.ac.bd/" target="_blank"><img src="images/Pundra-University.jpg"
-                    alt="PUB"></a>
-        </div>
-        <div class="title">
-            <h1>SGPA Calculator</h1>
-        </div>
-        <div class="logo2">
-            <!---second logo will dynamically by selecting the department-->
-        </div>
+    <!-- Full-Screen Animated Greeting -->
+    <div id="animatedGreeting" class="greeting">
+        <h1 id="typewriter"></h1>
+        <p>Your one-stop solution for calculating Semester Grade Point Average.</p>
     </div>
 
-    <div class="container">
-        <form id="sgpaForm">
-            <!-- Select Department -->
-            <label for="department">Select Department:</label>
-            <select id="department" onchange="loadSemesters()">
-                <option value="">--Select--</option>
-                <option value="CSE">Computer Science and Engineering</option>
-                <option value="EEE">Electrical and Electronics Engineering</option>
-                <option value="ME">Civil Engineering</option>
-            </select>
-
-            <!-- Select Semester -->
-            <label for="semester">Select Semester:</label>
-            <select id="semester" name="semester" onchange="loadCourses()" disabled>
-                <option value="">--Select Semester--</option>
-                <!-- Semesters will load dynamically based on selected department -->
-            </select>
-
-            <!-- Course Table -->
-            <table id="coursesTable">
-                <thead>
-                    <tr>
-                        <th>Course Code</th>
-                        <th>Course Title</th>
-                        <th>Credit</th>
-                        <th>Grade</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Courses will load dynamically -->
-                </tbody>
-            </table>
-
-            <!-- Buttons -->
-            <div class="buttons">
-                <button type="reset">Reset</button>
-                <button type="button" onclick="calculateSGPA()">Submit</button>
+    <!-- Main Page Content -->
+    <div id="mainPage" class="hidden">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="logo1">
+                <a href="http://pundrauniversity.ac.bd/" target="_blank">
+                    <img src="images/Pundra-University.jpg" alt="PUB Logo">
+                </a>
             </div>
-        </form>
-
-        <!-- Result Popup -->
-        <div id="resultPopup" style="display:none;">
-            <h2>SGPA Result</h2>
-            <p id="sgpaResult"></p>
-            <button onclick="closePopup()">Close</button>
+            <div class="title">
+                <h1>SGPA Calculator</h1>
+            </div>
+            <div class="logo2">
+                <!-- Dynamic content will be appended here -->
+            </div>
         </div>
+        <div class="container">
+            <form id="sgpaForm">
+                <!-- Select Department -->
+                <label for="department">Select Department:</label>
+                <select id="department" onchange="loadSemesters()">
+                    <option value="">--Select--</option>
+                    <option value="CSE">Computer Science and Engineering</option>
+                    <option value="EEE">Electrical and Electronics Engineering</option>
+                    <option value="ME">Civil Engineering</option>
+                </select>
 
-        <div class="footer">
-            <p>Made with <i class="fa fa-heart" style="font-size:18px; color:red"></i> by <a href="https://github.com/Ahsanur-42/" target="_blank">Md. Ahsanur Rahaman.</a> Department of CSE, PUB. 22nd batch.</p>
+                <!-- Select Semester -->
+                <label for="semester">Select Semester:</label>
+                <select id="semester" name="semester" onchange="loadCourses()" disabled>
+                    <option value="">--Select Semester--</option>
+                </select>
+
+                <!-- Course Table -->
+                <table id="coursesTable">
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Course Title</th>
+                            <th>Credit</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Courses will load dynamically -->
+                    </tbody>
+                </table>
+
+                <!-- Buttons -->
+                <div class="buttons">
+                    <button type="reset">Reset</button>
+                    <button type="button" onclick="calculateSGPA()">Submit</button>
+                </div>
+            </form>
+
+            <div class="footer">
+                <p>Made with <i class="fa fa-heart" style="font-size:18px; color:red"></i> by <a
+                        href="https://github.com/Ahsanur-42/" target="_blank">Md. Ahsanur Rahaman.</a> Department of
+                    CSE, PUB. 22nd batch.</p>
+            </div>
         </div>
     </div>
 
     <script src="JS/data.js"></script>
     <script src="JS/calculation.js"></script>
     <script src="JS/logo.js"></script>
+    <script src="JS/animation.js"></script>
 </body>
 
 </html>

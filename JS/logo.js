@@ -1,3 +1,4 @@
+
 function updateDynamicLogo() {
     const department = document.getElementById('department').value;
     const logo2 = document.querySelector('.logo2');
@@ -25,8 +26,8 @@ function updateDynamicLogo() {
         const img = document.createElement('img');
         img.src = logos[department].src;
         img.alt = `${department} Logo`;
-        img.style.maxHeight = '80px';
-        img.style.maxWidth = '100px';
+        img.style.Height = '90px';
+        img.style.Width = '100px';
 
         // Create the link element
         const link = document.createElement('a');
