@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>SGPA Calculator</title>
 </head>
+
 <body>
+    <div class="header">
+        <div class="logo1">
+            <a href="http://pundrauniversity.ac.bd/" target="_blank"><img src="images/Pundra-University.jpg"
+                    alt="PUB"></a>
+        </div>
+        <div class="title">
+            <h1>SGPA Calculator</h1>
+        </div>
+        <div class="logo2">
+            <!---second logo will dynamically by selecting the department-->
+        </div>
+    </div>
+
     <div class="container">
-        <h1>SGPA Calculator</h1>
         <form id="sgpaForm">
             <!-- Select Department -->
             <label for="department">Select Department:</label>
@@ -16,7 +31,7 @@
                 <option value="">--Select--</option>
                 <option value="CSE">Computer Science and Engineering</option>
                 <option value="EEE">Electrical and Electronics Engineering</option>
-                <option value="ME">Mechanical Engineering</option>
+                <option value="ME">Civil Engineering</option>
             </select>
 
             <!-- Select Semester -->
@@ -54,9 +69,15 @@
             <p id="sgpaResult"></p>
             <button onclick="closePopup()">Close</button>
         </div>
+
+        <div class="footer">
+            <p>Made with <i class="fa fa-heart" style="font-size:18px; color:red"></i> by <a href="https://github.com/Ahsanur-42/" target="_blank">Md. Ahsanur Rahaman.</a> Department of CSE, PUB. 22nd batch.</p>
+        </div>
     </div>
 
-    <script src="data.js"></script>
-    <script src="calculation.js"></script>
+    <script src="JS/data.js"></script>
+    <script src="JS/calculation.js"></script>
+    <script src="JS/logo.js"></script>
 </body>
+
 </html>
