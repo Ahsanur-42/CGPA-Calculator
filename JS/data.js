@@ -1,5 +1,5 @@
 const semesterData = {
-    "CSE": {
+    "OBEC": {
         "1st Year - 1st Semester": [
             { code: "CSE 1101", title: "Structured Programming Language", credit: "3.00" },
             { code: "CSE 1102", title: "Structured Programming Language Sessional", credit: "1.00" },
@@ -95,10 +95,10 @@ const semesterData = {
             { code: "CSE 42XX", title: "CSE Option-IV Sessional", credit: 1.00 }
         ]
     }
-     // Add other departments and semesters here...
+    // Add other departments and semesters here...
 };
 
-   
+
 
 function loadSemesters() {
     const department = document.getElementById('department').value;
@@ -107,12 +107,14 @@ function loadSemesters() {
     semesterDropdown.disabled = true;
 
     if (semesterData[department]) {
+        const fragment = document.createDocumentFragment();
         Object.keys(semesterData[department]).forEach(semester => {
             const option = document.createElement('option');
             option.value = semester;
             option.textContent = semester;
-            semesterDropdown.appendChild(option);
+            fragment.appendChild(option);
         });
+        semesterDropdown.appendChild(fragment);
         semesterDropdown.disabled = false;
     }
 }
@@ -123,30 +125,36 @@ function loadCourses() {
     const tableBody = document.querySelector('#coursesTable tbody');
     tableBody.innerHTML = '';
 
-    if (semesterData[department] && semesterData[department][semester]) {
-        semesterData[department][semester].forEach(course => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${course.code}</td>
-                <td>${course.title}</td>
-                <td>${parseFloat(course.credit).toFixed(2)}</td>
-                <td>
-                    <select name="grade">
-                        <option value="">--Select--</option>
-                        <option value="A+">A+</option>
-                        <option value="A">A</option>
-                        <option value="A-">A-</option>
-                        <option value="B+">B+</option>
-                        <option value="B">B</option>
-                        <option value="B-">B-</option>
-                        <option value="C+">C+</option>
-                        <option value="C">C</option>
-                        <option value="D">D</option>
-                        <option value="F">F</option>
-                    </select>
-                </td>
-            `;
-            tableBody.appendChild(row);
-        });
+    if (!semesterData[department] || !semesterData[department][semester]) {
+        tableBody.innerHTML = '<tr><td colspan="4">No courses available for the selected semester.</td></tr>';
+        return;
     }
+
+    const fragment = document.createDocumentFragment();
+    semesterData[department][semester].forEach(course => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${course.code}</td>
+            <td>${course.title}</td>
+            <td>${parseFloat(course.credit).toFixed(2)}</td>
+            <td>
+                <select name="grade">
+                    <option value="">--Select--</option>
+                    <option value="A+">A+</option>
+                    <option value="A">A</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B">B</option>
+                    <option value="B-">B-</option>
+                    <option value="C+">C+</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="F">F</option>
+                </select>
+            </td>
+        `;
+        fragment.appendChild(row);
+    });
+
+    tableBody.appendChild(fragment);
 }
