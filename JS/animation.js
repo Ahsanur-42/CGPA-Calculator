@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Constants
     const text = "Welcome to the SGPA Calculator...";
-    const typingSpeed = 100; // Speed in milliseconds per character
-    const fadeDuration = 900; // Fade-out duration in milliseconds
-    const delayAfterTyping = 1000; // Delay before transitioning to the main page
+    const typingSpeed = 100; 
+    const fadeDuration = 900; 
+    const delayAfterTyping = 1000; 
 
     let charIndex = 0;
 
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             charIndex++;
             setTimeout(typeText, typingSpeed);
         } else {
-            // After typing finishes, wait and transition
+            
             setTimeout(() => {
                 fadeOutGreeting();
             }, delayAfterTyping);
@@ -35,10 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
             greeting.style.opacity = 0;
 
             setTimeout(() => {
-                if (greeting) greeting.style.display = 'none'; // Hide greeting
-                if (mainPage) mainPage.classList.remove('hidden'); // Show main page
-                if (header) header.classList.add('show'); // Animate header
-                if (container) container.classList.add('show'); // Animate container
+                if (greeting) greeting.style.display = 'none';
+                if (mainPage) mainPage.classList.remove('hidden'); 
+                if (header) header.classList.add('show'); 
+                if (container) container.classList.add('show'); 
             }, fadeDuration);
         }
     }

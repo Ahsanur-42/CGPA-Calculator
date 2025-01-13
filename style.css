@@ -121,6 +121,7 @@ body {
 }
 
 .header {
+    margin-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -129,11 +130,12 @@ body {
 
 .header .logo1 img,
 .header .logo2 img {
-    height: 100px;
-    width: auto;
+    height: 80px;
+    max-width: 100px;
     border-radius: 50px;
-    display: block;
+    width: auto;
 }
+
 
 .header .title h1 {
     font-size: 40px;
@@ -144,8 +146,7 @@ body {
 
 @media (max-width: 768px) {
     .header {
-        flex-direction: column;
-        text-align: center;
+        padding: 10px 5px;
     }
 
     .header .logo1,
@@ -154,9 +155,11 @@ body {
     }
 
     .header .title h1 {
-        font-size: 20px;
+        font-size: 22px;
+        margin: 10px 0;
     }
 }
+
 
 /* Container */
 .container {
