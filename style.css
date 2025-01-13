@@ -295,7 +295,6 @@ a {
 
     #typewriter {
         font-size: 1.5rem;
-        /* Typewriting text size */
     }
 
     button {
@@ -370,6 +369,5 @@ a {
 
     #typewriter {
         font-size: 1.2rem;
-        /* Typewriting text smaller */
     }
 }
