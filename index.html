@@ -18,29 +18,30 @@
 
     <!-- Main Page Content -->
     <div id="mainPage" class="hidden">
-        <!-- Header Section -->
-        <div class="header">
-            <div class="logo1">
-                <a href="http://pundrauniversity.ac.bd/" target="_blank">
-                    <img src="images/Pundra-University.jpg" alt="PUB Logo">
-                </a>
-            </div>
-            <div class="title">
-                <h1>SGPA Calculator</h1>
-            </div>
-            <div class="logo2">
-                <a href="http://pundrauniversity.ac.bd/departments/computer-science-and-engineering" target="_blank">
-                    <img src="images/CSE.jpg" alt="CSE Logo">
-                </a>
-            </div>
-        </div>
+
         <div class="container">
+            <div class="header">
+                <div class="logo1">
+                    <a href="http://pundrauniversity.ac.bd/" target="_blank">
+                        <img src="images/Pundra-University.jpg" alt="PUB Logo">
+                    </a>
+                </div>
+                <div class="title">
+                    <h1>SGPA Calculator</h1>
+                </div>
+                <div class="logo2">
+                    <a href="http://pundrauniversity.ac.bd/departments/computer-science-and-engineering"
+                        target="_blank">
+                        <img src="images/CSE.jpg" alt="CSE Logo">
+                    </a>
+                </div>
+            </div>
             <form id="sgpaForm">
                 <!-- Select Department -->
                 <label for="department">Select Department:</label>
                 <select id="department" onchange="loadSemesters()">
                     <option value="">--Select--</option>
-                    <option value="Non-OBEC">Non-OBEC</option>
+                    <option value="Non-OBEC">Non-OBEC (Under Construction)</option>
                     <option value="OBEC">OBEC (Batch: 21 - Ongoing)</option>
                 </select>
 
@@ -71,6 +72,11 @@
                     <button type="button" onclick="calculateSGPA()">Submit</button>
                 </div>
             </form>
+            <!-- Result Popup -->
+            <div id="resultPopup" style="display: none;">
+                <p id="sgpaResult"></p>
+                <button onclick="closePopup()">Close</button>
+            </div>
 
             <div class="footer">
                 <p>Made with <i class="fa fa-heart" style="font-size:18px; color:red"></i> by <a
